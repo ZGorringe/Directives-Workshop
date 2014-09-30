@@ -34,6 +34,13 @@ app.directive('notify', function() {
     		Notification.requestPermission(function (permission) {
                 console.log(permission);
             });
+            elem.click(function(){
+            	var notification = new Notification(scope.title, {body: scope.body, icon: scope.icon});
+
+            	notification.onclose = function(){
+            		alert('Hey');
+            	}
+            });
 		}
 
 	}
